@@ -5,6 +5,7 @@ import { Row } from "react-bootstrap";
 
 const Songs = () => {
 	const songs = useSelector((state) => state.songs);
+	songs.reverse();
 	return !songs.length ? (
 		<p>Loading...</p>
 	) : (

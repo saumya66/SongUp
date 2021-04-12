@@ -18,8 +18,9 @@ const Song = ({ songProp }) => {
 					<Card.Title>{songProp.songName}</Card.Title>
 
 					<Button variant="primary" onClick={handleClick}>
-						<i class="fa fa-play-circle" aria-hidden="true"></i>
+						Play
 					</Button>
+					<h5 className="uploaderName">By : {songProp.creatorName}</h5>
 				</Card.Body>
 				<Card.Footer className="text-muted">
 					{moment(songProp.createdAt).fromNow()}

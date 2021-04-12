@@ -8,13 +8,16 @@ import { Row } from "react-bootstrap";
 const Profile = () => {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 	const songs = useSelector((state) => state.songs);
-	const userSongs = songs.filter((song) => song.creator !== user.result.id);
+	const userSongs = songs.filter((song) => song.creatorId === user.result._id);
+	userSongs.reverse();
+
 	return (
 		<div>
 			<Container>
 				<p>Hey there, You are signed In !</p>
 				<h4>{user.result.name}</h4>
 			</Container>
+			<p>Your Uploads : </p>
 			{userSongs.map((song) => (
 				<Song songProp={song} />
 			))}
